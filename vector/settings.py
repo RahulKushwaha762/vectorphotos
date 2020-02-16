@@ -25,7 +25,7 @@ SECRET_KEY = 'tn@yh&_tkxr3#9k7=4b1i4_hgt&&srw@^o&x0d5xyd40dpxz8!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vectorphotos2.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['vectorphotos.herokuapp.com','127.0.0.1']
 
 
 # Application definition
