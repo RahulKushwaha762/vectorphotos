@@ -47,7 +47,7 @@ Upload using links
 <div>
        <form method="post" >
         {% csrf_token %}
-        <input type="text" placeholder="Enter Image Name" name="filename" >
+        <input type="text" autocomplete="off" placeholder="Enter Image Name" name="filename" >
         <br>
         <br>
         <label for= "cat">Select Category</label>
@@ -62,7 +62,7 @@ Upload using links
         </select>
         <br>
         <label for= "lk">Link</label>
-        <input id = 'lk' type="text" placeholder="Paste Link" name="linkimage" required>
+        <input id = 'lk' autocomplete="off" type="text" placeholder="Paste Link" name="linkimage" required>
         <br>
         <button  class="upload" style ="width:30%;" type="submit">Submit</button>
  </form>

@@ -6,7 +6,7 @@
 <style>
 div {
 	width: 350px;
-	padding-right: 10px;
+	padding-right: 0;
 	border: 2px dotted gray;
 	margin: 0;
 }
@@ -38,6 +38,9 @@ button:active{
 }
 .name {
 	color: blue;
+}
+.image{
+    width:100%;
 }
 </style>
 </head>
@@ -85,12 +88,12 @@ button:active{
     {% if i.topic == searched %}
     <div class="picture">
     {% if i.image %}
-        <img src = {{ i.image.url }} width="50%" >
+        <img class="image" src = {{ i.image.url }} width="50%" >
     {% endif %}
     <br>
 
         {% if i.link %}
-            <img src = {{ i.link }} width="50%">
+            <img class="image" src = {{ i.link }} width="50%">
         {% endif %}
     <br>
     <div class="name">
