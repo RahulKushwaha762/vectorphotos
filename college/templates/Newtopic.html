@@ -3,14 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+<style>
+    div {
+	width: 350px;
+	padding-right: 10px;
+	border: 2px solid black;
+	margin: 0;
+}
+body {
+	font-family: georgia,garamond,serif;
+	font-size-adjust: 0.61;
+	background: aliceblue;
+}
+button {
+	color: #052e42;
+	border: 2px solid #2774b7;
+	height: 30px;
+}
+
+button:active{
+    color:white;
+    background:black;
+}
+.upload {
+	color: #052e42;
+	border: 2px solid red;
+	height: 50px;
+}
+.select {
+	background: #8e94ec;
+	border: 1px azure;
+	align-content: center;
+	height: 30px;
+}
+
+</style>
 <body>
     <h1>ENTER NEW CATEGORY</h1>
     <form action="" method="POST" >
         {% csrf_token %}
         <label for="ct">Enter category</label>
         <input type="text" name="category" placeholder="Enter Category" required id="ct">
-        <input type="submit" value="SUBMIT">
+        <input  type="submit" value="SUBMIT">
     </form>
     {% if error == 1 %}
         {% include 'error.html' %}

@@ -5,10 +5,39 @@
 <head>
 <style>
 div {
-  width: 320px;
-  padding-right: 10px;
-  border: 5px solid gray;
-  margin: 0;
+	width: 350px;
+	padding-right: 10px;
+	border: 2px dotted gray;
+	margin: 0;
+}
+body {
+	font-family: georgia,garamond,serif;
+	font-size-adjust: 0.61;
+	background: aliceblue;
+}
+button {
+	color: #052e42;
+	border: 2px solid #2774b7;
+	height: 30px;
+}
+button:active{
+    color:white;
+    background:black;
+}
+.select {
+	background: #8e94ec;
+	border: 1px azure;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	height: 30px;
+}
+.picture {
+	color: #071d39;
+	border: 3px solid #040404;
+}
+.name {
+	color: blue;
 }
 </style>
 </head>
@@ -31,7 +60,7 @@ div {
      <form method="post">
         {% csrf_token %}
         <label for= "cat">Select Category</label>
-        <select name = 'category' required id="cat" >
+        <select class = "select" name = 'category' required id="cat" >
             <option disabled selected value="none"> select Category </option>
             {% if topics %}
                 {% for i in topics %}
@@ -40,7 +69,6 @@ div {
                 {% endfor %}
             {% endif %}
         </select>
-         <br>
          <label for= "dl">Delete</label>
          <input id ="dl" type="radio" value = "delete" name = 'op'>
          <label for= "sr">Search</label>
@@ -55,17 +83,20 @@ div {
 {% for i in object %}
 
     {% if i.topic == searched %}
+    <div class="picture">
     {% if i.image %}
         <img src = {{ i.image.url }} width="50%" >
     {% endif %}
     <br>
-    <div>
+
         {% if i.link %}
             <img src = {{ i.link }} width="50%">
         {% endif %}
     <br>
+    <div class="name">
+        Category = {{ i.topic }} || Filename = {{ i.name }}
+    </div>
 
-    topic = {{ i.topic }} || Filename = {{ i.name }}
 
     <form action="upload/delete/{{ i.id }}">
         <button type="submit">Delete</button>
