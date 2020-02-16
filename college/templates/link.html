@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+div {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+}
+</style>
+</head>
+<body>
+<form action="/">
+    <button type="submit">Go Back</button>
+</form>
+Upload using links
+<div>
+       <form method="post" >
+        {% csrf_token %}
+        <input type="text" placeholder="Enter Image Name" name="filename" >
+        <br>
+        <br>
+        <label for= "cat">Select Category</label>
+        <select name = 'category' required id="cat" >
+            <option disabled selected value="none"> select Category </option>
+            {% if topics %}
+                {% for i in topics %}
+                    {{ i.name }}
+                    <option value={{ i.name }}>{{ i.name }}</option>
+                {% endfor %}
+            {% endif %}
+        </select>
+        <br>
+        <label for= "lk">Link</label>
+        <input id = 'lk' type="text" placeholder="Paste Link" name="linkimage" required>
+        <br>
+        <button style ="width:30%;" type="submit">Submit</button>
+ </form>
+    {% if message == 1 %}
+        {% include 'success.html' %}
+            {% block contents %}
+            {% endblock %}
+    {% endif %}
+
+</body>
+</html>

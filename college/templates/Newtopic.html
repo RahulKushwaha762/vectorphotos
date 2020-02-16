@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>ENTER NEW CATEGORY</h1>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <label for="ct">Enter category</label>
+        <input type="text" name="category" placeholder="Enter Category" required id="ct">
+        <input type="submit" value="SUBMIT">
+    </form>
+    {% if error == 1 %}
+        {% include 'error.html' %}
+            {% block contents %}
+            {% endblock %}
+    {% endif %}
+</body>
+
+</html>
