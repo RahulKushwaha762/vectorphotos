@@ -49,7 +49,7 @@ Upload the Images
  <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for = "in">Enter Image Name</label>
-        <input class="select" id = "in" type="text" autocomplete="off" placeholder="Enter Image Name" name="filename" >
+        <input class="select" id = "in" type="text" autocomplete="" placeholder="Enter Image Name" name="filename" >
         <label for= "cat">Select Category</label>
         <select class="select" name = 'category' required id="cat" >
             <option disabled selected value="none"> select Category </option>
