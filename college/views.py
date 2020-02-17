@@ -11,6 +11,7 @@ def index(request):
         val = request.POST['op']
         if val == 'delete':
             Topics.objects.filter(name=category).delete()
+            Images.objects.filter(topic=category).delete()
             return redirect('/')
     img = Images.objects.all()
     topics = Topics.objects.all()

@@ -6,38 +6,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-    div {
-	width: 350px;
-	padding-right: 10px;
-	border: 2px solid black;
-	margin: 0;
+topbar{
+    border:2px solid #444857;
+    background:#444857;
+    width:320px;
+    height:20px;
+    position:absolute;
+    text-align:center;
+    font-size: 1rem;
+    font-family:Telefon Black;
 }
+.button {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1.2;
+	padding: 10px 16px;
+	margin: 10px 10px 10px 10px;
+	position: relative;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #2fb45a;
+	color: white;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.button:active{
+    background: #107932;
+	color: white;
+}
+
+
+div {
+	width: 320px;
+	border: 2px dotted gray;
+	text-align:left;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 body {
 	font-family: georgia,garamond,serif;
 	font-size-adjust: 0.61;
-	background: aliceblue;
+	background: #1e1f26;
+	color:white;
+	font-weight:700;
+	transition: .2s ease;
+	text-align: center;
 }
 
-.upload {
-	color: #052e42;
-	border: 2px solid red;
-	height: 30px;
-}
 .select {
-	background: #8e94ec;
-	border: 1px azure;
-	align-content: center;
-	height: 30px;
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1;
+	padding: 10px 18px;
+    margin-bottom:10px;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #444857;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	margin-top:10px;
+	text-transform:capitalize;
 }
+
 
 </style>
 <body>
-    <h1>ENTER NEW CATEGORY</h1>
+    <h1>CATEGORY</h1>
     <form action="" method="POST" >
         {% csrf_token %}
-        <label for="ct">Enter category</label>
-        <input autocomplete="off" type="text" name="category" placeholder="Enter Category" required id="ct">
-        <input class="upload" type="submit" value="SUBMIT">
+        <label for="ct">Create a new category for images</label>
+        <br>
+        <input class="select" autocomplete="off" type="text" name="category" placeholder="Enter Category" required id="ct">
+        <br>
+        <input class="button" type="submit" value="CREATE">
     </form>
     {% if error == 1 %}
         {% include 'error.html' %}

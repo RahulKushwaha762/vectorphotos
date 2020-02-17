@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <title>Kushwaha</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.2">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <style>
 topbar{
@@ -13,8 +13,6 @@ topbar{
     text-align:center;
     font-size: 1rem;
     font-family:Telefon Black;
-
-
 }
 .button {
 	font-size: 1rem;
@@ -60,6 +58,7 @@ topbar{
 	color: white;
 }
 div {
+    margin-top:5px;
 	width: 320px;
 	border: 2px dotted gray;
 	text-align:center;
@@ -91,6 +90,7 @@ body {
 .picture {
 	color: #071d39;
 	border: 3px solid #040404;
+	text-align:left;
 }
 .name {
 	color: white;
@@ -119,6 +119,8 @@ body {
 
 <br>
 <br>
+  <topbar>COLLECTION</topbar>
+ <BR>
 <div>
      <form method="post">
         {% csrf_token %}
