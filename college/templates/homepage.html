@@ -5,13 +5,11 @@
 <head>
 <style>
 topbar{
-    border:2px solid #444857;
-    background:#444857;
-    width:320px;
+
+    width:400px;
     height:20px;
-    position:absolute;
     text-align:center;
-    font-size: 1rem;
+    font-size: 1em;
     font-family:Telefon Black;
 }
 .button {
@@ -62,6 +60,18 @@ div {
 	width: 320px;
 	border: 2px dotted gray;
 	text-align:center;
+	margin-left:auto;
+	margin-right:auto;
+
+}
+bdiv {
+    margin-top:5px;
+	width: 320px;
+	border: 2px dotted gray;
+	margin-left:auto;
+	margin-right:auto;
+	text-align: left;
+    display: block ruby;
 }
 
 body {
@@ -103,9 +113,9 @@ body {
 </style>
 </head>
 <body>
- <topbar>VECTORPHOTOS</topbar>
-<div>
+<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS</topbar></div>
 
+<div>
     Upload new images
     {{ object.topic }}
     {{ object.image.url }}
@@ -119,8 +129,7 @@ body {
 
 <br>
 <br>
-  <topbar>COLLECTION</topbar>
- <BR>
+<div style="background:#444857"><topbar>COLLECTION</topbar></div>
 <div>
      <form method="post">
         {% csrf_token %}
@@ -139,18 +148,14 @@ body {
          <label for= "sr">Search</label>
          <input id ="sr" type="radio" value = "search" name = 'op' checked = "checked">
         <button class="button" style ="width:30%;" type="submit">Go</button>
-
  </form>
 
 </div>
-<br>
-
 {% for i in object %}
-
     {% if i.topic == searched %}
     <div class="picture">
     {% if i.image %}
-        <img class="image" src = {{ i.image.url }} width="50%" >
+        <a href="{{ i.image.url }}"><img class="image" src = {{ i.image.url }} width="50%" ></a>
     {% endif %}
     <br>
 
@@ -159,13 +164,20 @@ body {
         {% endif %}
     <br>
     <div class="name">
-        Category = <span style="color:#2fb45a" >{{ i.topic }}</span> <br>Filename =<span style="color:#2fb45a" >{{ i.name }}</span>
+        <center><span style="margin-left:auto;margin-right:auto;color:#2fb45a;">{{ i.name }}</span></center>->Category = <span style="color:#34c620" >{{ i.topic }}</span>
     </div>
-
-
-    <form action="upload/delete/{{ i.id }}">
+    <bdiv>
+     <form action="upload/delete/{{ i.id }}">
         <button class="delete" type="submit">Delete</button>
     </form>
+
+    <form action="{{ i.image.url }}">
+        <button class="delete" style="background:#fdbf06b0" type="submit">Open</button>
+    </form>
+
+
+    </bdiv>
+
     </div>
     <br>
     {% endif %}
