@@ -39,7 +39,7 @@ topbar{
 	text-shadow: black;
 	line-height: 1.2;
 	padding: 4px 16px;
-	margin: 10px 10px 10px 10px;
+	margin-left: 10px;
 	position: relative;
 	border-radius: 4px;
 	border: 3px solid transparent;
@@ -50,6 +50,7 @@ topbar{
 	text-overflow: ellipsis;
 	text-align: center;
 	font-weight: bold;
+	margin-bottom: 5px;
 }
 .delete:active{
     background: #550000b0;
@@ -65,13 +66,11 @@ div {
 
 }
 bdiv {
-    margin-top:5px;
 	width: 320px;
-	border: 2px dotted gray;
-	margin-left:auto;
-	margin-right:auto;
 	text-align: left;
+    display: inline;
     display: block ruby;
+    padding-top:3px;
 }
 
 body {
@@ -176,9 +175,8 @@ body {
         </form>
     {% endif %}
      {% if i.link %}
-
         <form action="{{ i.link }}" >
-        <input class="select" value="{{ i.link }}"  type="text"></input>
+        <input class="select" style="margin-left:10px;" value="{{ i.link }}"  type="text"></input>
         </form>
     {% endif %}
     </bdiv>
