@@ -34,7 +34,16 @@ def link(request):
     if request.method == 'POST':
         link = request.POST['linkimage']
         img = Images()
-        img.link = link
+        if 'https://drive.google.com' in link:
+            print("drive link=", link)
+            split = link.split('/')
+            print(split)
+            img.link = 'https://drive.google.com/uc?id='+split[5]
+        else:
+            print("no drive link", link)
+            img.link = link
+
+
         img.image = ''
         img.name = request.POST['filename']
         img.topic = request.POST['category']

@@ -115,6 +115,7 @@ body {
 <body>
 <div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS</topbar></div>
 
+
 <div>
     Upload new images
     {{ object.topic }}
@@ -160,29 +161,37 @@ body {
     <br>
 
         {% if i.link %}
-            <img class="image" src = {{ i.link }} width="50%">
+        <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%"></a>
         {% endif %}
     <br>
     <div class="name">
         <center><span style="margin-left:auto;margin-right:auto;color:#2fb45a;">{{ i.name }}</span></center>->Category = <span style="color:#34c620" >{{ i.topic }}</span>
     </div>
     <bdiv>
-     <form action="upload/delete/{{ i.id }}">
+        <form action="upload/delete/{{ i.id }}">
         <button class="delete" type="submit">Delete</button>
     </form>
-
-    <form action="{{ i.image.url }}">
+    {% if i.image %}
+        <form action="{{ i.image.url }}">
         <button class="delete" style="background:#fdbf06b0" type="submit">Open</button>
-    </form>
+        </form>
+    {% endif %}
+     {% if i.link %}
 
-
+        <form action="{{ i.link }}" >
+        <br>
+        <input class="select" value="{{ i.link }}"  type="text"></input>
+        </form>
+    {% endif %}
     </bdiv>
 
     </div>
     <br>
     {% endif %}
 {% endfor %}
-
+<form action="/">
+    <button class="button" style="margin-top:auto;margin-top:10px;" type="submit">Refresh</button>
+</form>
 
 </body>
 </html>

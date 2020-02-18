@@ -98,6 +98,8 @@ body {
     <button class="button" type="submit">Go Back</button>
 </form>
 Upload using links
+<div style="background:#444857;border:2px solid #1a7725;"><topbar>Using Google Drive or any links</topbar></div><br>
+<center><p style="font-size:12px;">Drive links can be automatically detected (Do link sharing on)</p></center>
 <div>
        <form method="post" >
         {% csrf_token %}
@@ -121,32 +123,8 @@ Upload using links
         <button  class="upload" style ="width:30%;" type="submit">Submit</button>
  </form>
 </div>
-<CENTER>OR</CENTER>
-<div style="background:#444857;border:2px solid #1a7725;"><topbar>Using Google Drive links</topbar></div><br>
 
-<div>
-       <form method="post" >
-        {% csrf_token %}
-           <label for= "cat">Enter Image Name</label>
-        <input class="select" type="text" autocomplete="off" placeholder="Enter Image Name" name="filename" >
-        <br>
-        <label for= "cat">Select Category</label>
-        <select class="select" name = 'category' required id="cat" >
-            <option disabled selected value="none"> select Category </option>
-            {% if topics %}
-                {% for i in topics %}
-                    {{ i.name }}
-                    <option value={{ i.name }}>{{ i.name }}</option>
-                {% endfor %}
-            {% endif %}
-        </select>
-        <br>
-        <label for= "lk">Link</label>
-        <input id = 'lk' class="select" autocomplete="off" type="text" placeholder="Paste Link" name="linkimage" required>
-        <br>
-        <button  class="upload" style ="width:30%;" type="submit">Submit</button>
- </form>
-</div>
+
   <form action="/newcategory/">
     <button  class="button" type="submit">New Category</button>
 </form>
