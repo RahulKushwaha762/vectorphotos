@@ -3,6 +3,20 @@ from .models import Images,Topics
 from django.core.files.storage import FileSystemStorage
 
 # Create your views here.
+def login(request):
+    message = 0
+    if request.method == 'POST':
+        password = request.POST['password']
+        if password == '15432':
+            message = 2
+            return redirect('index/')
+        else:
+            message = 1
+    context = {
+        'm':message,
+    }
+    return render(request,'login.html',context=context)
+
 def index(request):
     category = ''
     val = ''

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+topbar{
+    border:2px solid #444857;
+    background:#444857;
+    width:320px;
+    height:20px;
+    position:absolute;
+    text-align:center;
+    font-size: 1em;
+    font-family:Telefon Black;
+}
+.button {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1.2;
+	padding: 10px 16px;
+	margin: 10px 10px 10px 10px;
+	position: relative;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #2fb45a;
+	color: white;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.button:active{
+    background: #107932;
+	color: white;
+}
+
+
+div {
+	width: 320px;
+	border: 2px dotted gray;
+	text-align:left;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+body {
+	font-family: georgia,garamond,serif;
+	font-size-adjust: 0.61;
+	background: #1e1f26;
+	color:white;
+	font-weight:700;
+	transition: .2s ease;
+	text-align: center;
+}
+
+.select {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1;
+	padding: 10px 18px;
+    margin-bottom:10px;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #444857;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	margin-top:10px;
+	text-transform:capitalize;
+}
+
+
+</style>
+<body>
+    <center><div style="background:#444857;border:2px solid white;"><topbar>VECTORPHOTOS</topbar></div></center>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <br>
+        <input class="select" autocomplete="off" type="text" name="password" placeholder="Enter" required id="ct">
+        <br>
+        <input class="button" type="submit" value="LOGIN">
+    </form>
+    {% if m == 0 %}
+        <h4>Enter Credentials</h4>
+    {% endif %}
+    {% if m == 1 %}
+        <h4>Wrong Credentials</h4>
+    {% endif %}
+</body>
+
+</html>
