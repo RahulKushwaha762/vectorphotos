@@ -7,21 +7,19 @@
 </head>
 <style>
 topbar{
-    border:2px solid #444857;
-    background:#444857;
     width:320px;
     height:20px;
-    position:absolute;
-    text-align:center;
+    position:initial;
     font-size: 1em;
     font-family:Telefon Black;
+    margin-left:auto;
+    margin-right:auto;
 }
 .button {
 	font-size: 1rem;
 	text-shadow: black;
 	line-height: 1.2;
 	padding: 10px 16px;
-	margin: 10px 10px 10px 10px;
 	position: relative;
 	border-radius: 4px;
 	border: 3px solid transparent;
@@ -42,9 +40,11 @@ topbar{
 div {
 	width: 320px;
 	border: 2px dotted gray;
-	text-align:left;
-	margin-top:10px;
-	margin-bottom:10px;
+	text-align:center;
+	margin-top:50px;
+	margin-bottom:auto;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 body {
@@ -58,7 +58,7 @@ body {
 }
 
 .select {
-	font-size: 1rem;
+	font-size: 20px;
 	text-shadow: black;
 	line-height: 1;
 	padding: 10px 18px;
@@ -76,8 +76,10 @@ body {
 
 </style>
 <body>
-    <center><div style="background:#444857;border:2px solid white;"><topbar>VECTORPHOTOS</topbar></div></center>
-    <form action="" method="POST" >
+    <div style="background:#444857;border:2px solid white;"><topbar>VECTORPHOTOS</topbar></div>
+    <br>
+    <div>
+        <form action="" method="POST" >
         {% csrf_token %}
         <br>
         <input class="select" autocomplete="off" type="text" name="password" placeholder="Enter" required id="ct">
@@ -90,6 +92,8 @@ body {
     {% if m == 1 %}
         <h4>Wrong Credentials</h4>
     {% endif %}
+    </div>
+
 </body>
 
 </html>
