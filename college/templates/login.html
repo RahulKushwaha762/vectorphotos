@@ -82,7 +82,7 @@ body {
         <form action="" method="POST" >
         {% csrf_token %}
         <br>
-        <input class="select" pattern="[0-9]*" autocomplete="off" type="text" name="password" placeholder="Enter" required id="ct">
+        <input class="select" pattern="[0-9]*" inputmode="numeric" autocomplete="off" type="text" name="password" placeholder="Enter" required id="ct">
         <br>
         <input class="button" type="submit" value="LOGIN">
     </form>
