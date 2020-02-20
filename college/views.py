@@ -101,6 +101,7 @@ def newcat(request):
         topic = Topics()
         name = request.POST['category']
         all_topics = Topics.objects.all()
+        name = name.replace(" ","_")
         for i in all_topics:
             if i.name == name:
                 error = 1
