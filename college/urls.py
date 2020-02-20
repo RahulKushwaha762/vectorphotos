@@ -8,5 +8,6 @@ urlpatterns = [
     path('upload/usingupload/',views.uploadimage),
     path('upload/usinglink/',views.link),
     path('index/upload/delete/<int:dl>/',views.delete),
-    path('newcategory/',views.newcat)
+    path('newcategory/',views.newcat),
+    path('selectcard/',views.card),
 ]

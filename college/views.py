@@ -112,3 +112,6 @@ def newcat(request):
             'error': error,
         }
     return render(request,'Newtopic.html',context=context)
+
+def card(request):
+    return render(request,'cards.html')

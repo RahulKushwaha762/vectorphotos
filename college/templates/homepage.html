@@ -107,13 +107,18 @@ body {
 .image{
     width:100%;
 }
+.wrapper{
+     display: flex;
+     justify-content: center;
+     flex-wrap: wrap;
+}
 </style>
 </head>
 <body>
 <div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS</topbar></div>
 
 
-<div>
+<div class="wrapper">
     Upload new images
     {{ object.topic }}
     {{ object.image.url }}
@@ -122,6 +127,9 @@ body {
     </form>
     <form action="/newcategory/">
     <button class="button " type="submit">New Category</button>
+    </form>
+    <form action="/selectcard/">
+        <button class="button " type="submit">Select Cards</button>
     </form>
 </div>
 
