@@ -114,4 +114,8 @@ def newcat(request):
     return render(request,'Newtopic.html',context=context)
 
 def card(request):
-    return render(request,'cards.html')
+    all_topics = Topics.objects.all()
+    context = {
+        'alltopics':all_topics,
+    }
+    return render(request,'cards.html',context=context)
