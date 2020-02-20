@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>Kushwaha</title>
+<title>Photos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <style>
@@ -115,47 +115,7 @@ body {
 </style>
 </head>
 <body>
-<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS</topbar></div>
-
-
-<div class="wrapper">
-    Upload new images
-    {{ object.topic }}
-    {{ object.image.url }}
-    <form action="/upload/">
-        <button class="button " type="submit">Add photos</button>
-    </form>
-    <form action="/newcategory/">
-    <button class="button " type="submit">New Category</button>
-    </form>
-    <form action="/selectcard/">
-        <button class="button " type="submit">Select Cards</button>
-    </form>
-</div>
-
-<br>
-<br>
-<div style="background:#444857"><topbar>COLLECTION</topbar></div>
-<div>
-     <form method="post">
-        {% csrf_token %}
-        <label for= "cat">Select Category</label>
-        <select class = "select" name = 'category' required id="cat" >
-            <option disabled selected value="none"> select Category </option>
-            {% if topics %}
-                {% for i in topics %}
-                    {{ i.name }}
-                    <option value={{ i.name }}>{{ i.name }}</option>
-                {% endfor %}
-            {% endif %}
-        </select>
-         <label for= "dl">Delete</label>
-         <input id ="dl" type="radio" value = "delete" name = 'op'>
-         <label for= "sr">Search</label>
-         <input id ="sr" type="radio" value = "search" name = 'op' checked = "checked">
-        <button class="button" style ="width:30%;" type="submit">Go</button>
- </form>
-
+<div style="background:#444857;border:2px dotted white;"><topbar>{{ searched }}</topbar></div>
 </div>
 {% for i in object %}
     {% if i.topic == searched %}
@@ -169,11 +129,9 @@ body {
         {% if i.link %}
         <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%" alt="No image found"></a>
         {% endif %}
-    <div class="name">
-        ->Category = <span style="color:#34c620" >{{ i.topic }}</span>
-    </div>
+
     <bdiv>
-        <form action="upload/delete/{{ i.id }}">
+        <form action="/index/upload/delete/{{ i.id }}">
         <button class="delete" type="submit">Delete</button>
         </form>
     {% if i.image %}

@@ -10,4 +10,5 @@ urlpatterns = [
     path('index/upload/delete/<int:dl>/',views.delete),
     path('newcategory/',views.newcat),
     path('selectcard/',views.card),
+    path('selectcard/<slug:tp>/',views.selectcard)
 ]

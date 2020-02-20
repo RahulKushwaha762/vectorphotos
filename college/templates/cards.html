@@ -30,7 +30,7 @@ h1{
 }
  .card:nth-child(2){
     background: #4181ee;
-}
+}s
  .card:last-child{
     background: #673ab7;
 }
@@ -60,8 +60,8 @@ h1{
     {% for i in alltopics %}
 <div class="card">
 	<h3 class="card-title">{{ i.name }}</h3>
-        <form action="\">
-            <button class="card-btn">READ MORE</button>
+        <form action="\selectcard\{{i.name}}">
+            <button class="card-btn">OPEN CARD</button>
         </form>
 	</div>
     {% endfor %}

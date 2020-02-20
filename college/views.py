@@ -119,3 +119,15 @@ def card(request):
         'alltopics':all_topics,
     }
     return render(request,'cards.html',context=context)
+def selectcard(request,tp):
+    category = tp
+    img = Images.objects.all()
+    topics = Topics.objects.all()
+    f = 0
+    context = {
+        'object': img,
+        'topics': topics,
+        'searched': category,
+        'flag': f,
+    }
+    return render(request, 'allimages.html', context=context)
