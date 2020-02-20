@@ -131,7 +131,7 @@ body {
         {% endif %}
 
     <bdiv>
-        <form action="/index/upload/delete/{{ i.id }}">
+        <form action="/select/delete/{{ i.id }}/{{i.topic}}/">
         <button class="delete" type="submit">Delete</button>
         </form>
     {% if i.image %}

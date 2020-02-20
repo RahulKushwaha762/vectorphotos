@@ -73,6 +73,10 @@ def delete(request,dl):
     deleteq = Images.objects.filter(id=dl).delete()
     return redirect('/index')
 
+def cdelete(request,cdl,topic):
+    deleteq = Images.objects.filter(id=cdl).delete()
+    return redirect('/selectcard/'+topic+'/')
+
 def uploadimage(request):
     message = 0
     topics = Topics.objects.all()

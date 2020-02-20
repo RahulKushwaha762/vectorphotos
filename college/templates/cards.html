@@ -61,7 +61,7 @@ h1{
     {% for i in alltopics %}
 <div class="card">
 	<h3 class="card-title">{{ i.name }}</h3>
-        <form action="\selectcard\{{i.name}}">
+        <form action="/selectcard/{{i.name}}/">
             <button class="card-btn">OPEN CARD</button>
         </form>
 	</div>
