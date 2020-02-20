@@ -59,7 +59,6 @@ topbar{
 div {
     margin-top:5px;
 	width: 320px;
-
 	border: 2px dotted gray;
 	text-align:center;
 	margin-left:auto;
@@ -152,18 +151,19 @@ body {
 </div>
 {% for i in object %}
     {% if i.topic == searched %}
+
     <div class="picture">
+        <div class="'name" style="border: 2px solid #1e1f26;">
+        <center><span style="margin-left:auto;margin-right:auto;color:#e7ee0f;">{{ i.name }}</span></center>
+    </div>
     {% if i.image %}
         <a href="{{ i.image.url }}"><img class="image" src = {{ i.image.url }} width="50%" ></a>
     {% endif %}
-    <br>
-
         {% if i.link %}
         <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%"></a>
         {% endif %}
-    <br>
     <div class="name">
-        <center><span style="margin-left:auto;margin-right:auto;color:#e7ee0f;">{{ i.name }}</span></center>->Category = <span style="color:#34c620" >{{ i.topic }}</span>
+        ->Category = <span style="color:#34c620" >{{ i.topic }}</span>
     </div>
     <bdiv>
         <form action="upload/delete/{{ i.id }}">
