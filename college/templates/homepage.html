@@ -166,7 +166,7 @@ body {
         <center><span style="margin-left:auto;margin-right:auto;color:#e7ee0f;">{{ i.name }}</span></center>->Category = <span style="color:#34c620" >{{ i.topic }}</span>
     </div>
     <bdiv>
-        <form action="upload/delete/{{ i.id }}">
+        <form action="index/upload/delete/{{ i.id }}">
         <button class="delete" type="submit">Delete</button>
     </form>
     {% if i.image %}
