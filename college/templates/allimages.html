@@ -3,7 +3,20 @@
 <title>Photos</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
+    <script>
+        function myF()
+        {
+                if(confirm("Delete?"))
+                {
+                }
+                else
+                {
+                }
+        }
+    </script>
 <style>
+
+
 topbar{
 
     width:400px;
@@ -132,12 +145,13 @@ body {
 
     <bdiv>
         <form action="/select/delete/{{ i.id }}/{{i.topic}}/">
-        <button class="delete" type="submit">Delete</button>
+        <button class="delete" onclick="myF" type="submit">Delete</button>
         </form>
     {% if i.image %}
         <form action="{{ i.image.url }}">
         <button class="delete" style="background:#fdbf06b0" type="submit">Open</button>
         </form>
+
     {% endif %}
      {% if i.link %}
         <form action="{{ i.link }}" >
