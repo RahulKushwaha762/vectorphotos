@@ -26,7 +26,7 @@ def index(request):
         if val == 'delete':
             Topics.objects.filter(name=category).delete()
             Images.objects.filter(topic=category).delete()
-            return redirect('/')
+            return redirect('/index')
     img = Images.objects.all()
     topics = Topics.objects.all()
     f = 0
@@ -71,7 +71,7 @@ def link(request):
 
 def delete(request,dl):
     deleteq = Images.objects.filter(id=dl).delete()
-    return redirect('/')
+    return redirect('/index')
 
 def uploadimage(request):
     message = 0
@@ -107,7 +107,7 @@ def newcat(request):
         if error == 0:
             topic.name = name
             topic.save()
-        return redirect('/')
+            error = 2
     context = {
             'error': error,
         }

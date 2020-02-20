@@ -76,6 +76,9 @@ body {
 
 </style>
 <body>
+    <form action="/index">
+        <button class="button" style="margin-left:auto;display:flex;" type="submit">Go Back</button>
+    </form>
     <h1>CATEGORY</h1>
     <form action="" method="POST" >
         {% csrf_token %}
@@ -85,10 +88,15 @@ body {
         <br>
         <input class="button" type="submit" value="CREATE">
     </form>
+    {% if error == 0 %}
+    {% endif %}
     {% if error == 1 %}
         {% include 'error.html' %}
             {% block contents %}
             {% endblock %}
+    {% endif %}
+    {% if error == 2 %}
+        New category added
     {% endif %}
 </body>
 
