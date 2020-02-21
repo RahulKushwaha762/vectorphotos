@@ -142,6 +142,11 @@ body {
         {% if i.link %}
         <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%" alt="No image found"></a>
         {% endif %}
+        {% if i.pdflink %}
+        <form action="{{ i.link }}" >
+        <input class="select" style="margin-left:10px;" value="{{ i.pdflink }}"  type="text"></input>
+        </form>
+    {% endif %}
 
     <bdiv>
         <form action="/select/delete/{{ i.id }}/{{i.topic}}/">
