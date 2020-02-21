@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <style>
+topbar{
+    border:2px solid #444857;
+    background:#444857;
+    width:320px;
+    height:20px;
+    position:absolute;
+    text-align:center;
+    font-size: 1rem;
+    font-family:Telefon Black;
+}
+.button {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1.2;
+	padding: 10px 16px;
+	margin: 10px 10px 10px 10px;
+	position: relative;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #2fb45a;
+	color: white;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
+
+.button:active{
+    background: #107932;
+	color: white;
+}
+
+.upload {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1.2;
+	padding: 4px 16px;
+	margin: 10px 10px 10px 10px;
+	position: relative;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #23a818;
+	color: white;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+	font-weight: bold;
+}
+.upload:active{
+    background: #550000b0;
+	color: white;
+}
+div {
+	width: 320px;
+	border: 2px dotted gray;
+	text-align:left;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+body {
+	font-family: georgia,garamond,serif;
+	font-size-adjust: 0.61;
+	background: #1e1f26;
+	color:white;
+	font-weight:700;
+	transition: .2s ease;
+	text-align: right;
+}
+
+.select {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1;
+	padding: 5px 5px;
+    margin-bottom:10px;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #444857;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	text-transform:capitalize;
+}
+
+</style>
+</head>
+<body>
+<form action="/index">
+    <button class="button" type="submit">Go Back</button>
+</form>
+Upload using PDF links
+<div style="background:#444857;border:2px solid #1a7725;"><topbar>Using Google Drive or any links</topbar></div><br>
+<center><p style="font-size:12px;">Drive links can be automatically detected (Do link sharing on)</p></center>
+<div>
+       <form method="post" >
+        {% csrf_token %}
+           <label for= "cat">Enter File name</label>
+        <input class="select" type="text" autocomplete="off" placeholder="Enter Name" name="filename" >
+        <br>
+        <label for= "cat">Select Category</label>
+        <select class="select" name = 'category' required id="cat" >
+            <option disabled selected value="none"> select Category </option>
+            {% if topics %}
+                {% for i in topics %}
+                    {{ i.name }}
+                    <option value={{ i.name }}>{{ i.name }}</option>
+                {% endfor %}
+            {% endif %}
+        </select>
+        <br>
+        <label for= "lk">Link</label>
+        <input id = 'lk' class="select" autocomplete="off" type="text" placeholder="Paste Link" name="pdflink" required>
+        <br>
+        <button  class="upload" style ="width:30%;" type="submit">Submit</button>
+ </form>
+</div>
+
+
+  <form action="/newcategory/">
+    <button  class="button" type="submit">New Category</button>
+</form>
+    {% if message == 1 %}
+        {% include 'success.html' %}
+            {% block contents %}
+            {% endblock %}
+    {% endif %}
+
+</body>
+</html>

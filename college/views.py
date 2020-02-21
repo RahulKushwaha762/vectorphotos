@@ -56,8 +56,6 @@ def link(request):
         else:
             print("no drive link", link)
             img.link = link
-
-
         img.image = ''
         img.name = request.POST['filename']
         img.topic = request.POST['category']
@@ -68,6 +66,32 @@ def link(request):
         'topics': topics,
     }
     return render(request, 'link.html', context=context)
+
+def linkpdf(request):
+    message = 0
+    topics = Topics.objects.all()
+    if request.method == 'POST':
+        link = request.POST['pdflink']
+        img = Images()
+        if 'https://drive.google.com' in link:
+            print("drive link=", link)
+            split = link.split('/')
+            print(split)
+            img.pdflink = 'https://drive.google.com/uc?id='+split[5]
+        else:
+            print("no drive link", link)
+            img.pdflink = link
+        img.image = ''
+        img.link = ''
+        img.name = request.POST['filename']
+        img.topic = request.POST['category']
+        img.save()
+        message = 1
+    context = {
+        'message': message,
+        'topics': topics,
+    }
+    return render(request, 'linkpdf.html', context=context)
 
 def delete(request,dl):
     deleteq = Images.objects.filter(id=dl).delete()

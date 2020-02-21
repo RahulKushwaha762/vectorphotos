@@ -169,6 +169,9 @@ body {
         {% if i.link %}
         <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%" alt="No image found"></a>
         {% endif %}
+    {% if i.pdflink %}
+        <iframe src="{{ i.pdflink }}" width="100%" height="500px"> </iframe>
+        {% endif %}
     <div class="name">
         ->Category = <span style="color:#34c620" >{{ i.topic }}</span>
     </div>
@@ -184,6 +187,11 @@ body {
      {% if i.link %}
         <form action="{{ i.link }}" >
         <input class="select" style="margin-left:10px;" value="{{ i.link }}"  type="text"></input>
+        </form>
+    {% endif %}
+     {% if i.pdflink %}
+        <form action="{{ i.link }}" >
+        <input class="select" style="margin-left:10px;" value="{{ i.pdflink }}"  type="text"></input>
         </form>
     {% endif %}
     </bdiv>

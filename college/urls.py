@@ -7,6 +7,7 @@ urlpatterns = [
     path('upload/',views.upload),
     path('upload/usingupload/',views.uploadimage),
     path('upload/usinglink/',views.link),
+    path('upload/usinglinkpdf/',views.linkpdf),
     path('index/upload/delete/<int:dl>/',views.delete),
     path('select/delete/<int:cdl>/<slug:topic>/',views.cdelete),
     path('newcategory/',views.newcat),
