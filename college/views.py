@@ -7,7 +7,7 @@ def login(request):
     message = 0
     if request.method == 'POST':
         password = request.POST['password']
-        if password == '15432':
+        if password == '154321':
             message = 2
             return redirect('index/')
         else:
@@ -95,7 +95,6 @@ def linkpdf(request):
 
 def delete(request,dl):
     deleteq = Images.objects.filter(id=dl).delete()
-    d = Topics.objects.filter(id=10).delete()
     return redirect('/index')
 
 def cdelete(request,cdl,topic):
