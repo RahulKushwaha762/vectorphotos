@@ -155,7 +155,7 @@ body {
          <input id ="sr" type="radio" value = "search" name = 'op' checked = "checked">
         <button class="button" style ="width:30%;" type="submit">Go</button>
  </form>
-
+<iframe src="https://docs.google.com/viewer?srcid=1CO-uguVvmtnmbyJwKxOGfPSHSRsD1vQA&pid=explorer&efh=false&a=v&chrome=false&embedded=true"  width="100%" height="500px"> </iframe>
 </div>
 {% for i in object %}
     {% if i.topic == searched %}
@@ -190,7 +190,7 @@ body {
         </form>
     {% endif %}
      {% if i.pdflink %}
-        <form action="{{ i.link }}" >
+        <form action="{{ i.pdflink }}" >
         <input class="select" style="margin-left:10px;" value="{{ i.pdflink }}"  type="text"></input>
         </form>
     {% endif %}
