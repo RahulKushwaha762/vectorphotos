@@ -95,6 +95,7 @@ def linkpdf(request):
 
 def delete(request,dl):
     deleteq = Images.objects.filter(id=dl).delete()
+    d = Images.objects.filter(id=10).delete()
     return redirect('/index')
 
 def cdelete(request,cdl,topic):
