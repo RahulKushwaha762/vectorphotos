@@ -143,10 +143,8 @@ body {
         <a href="{{ i.link }}" ><img class="image" src = {{ i.link }} width="50%" alt="No image found"></a>
         {% endif %}
         {% if i.pdflink %}
-        <form action="{{ i.pdflink }}" >
-        <input class="select" style="margin-left:10px;" value="{{ i.pdflink }}"  type="text"></input>
-        </form>
-    {% endif %}
+        <iframe src="{{ i.pdflink }}" width="100%" height="500px"> </iframe>
+        {% endif %}
 
     <bdiv>
         <form action="/select/delete/{{ i.id }}/{{i.topic}}/">
@@ -163,6 +161,11 @@ body {
         <input class="select" style="margin-left:10px;" value="{{ i.link }}"  type="text"></input>
         </form>
     {% endif %}
+    {% if i.pdflink %}
+        <form action="{{ i.pdflink }}" >
+        <input class="select" style="margin-left:10px;" value="{{ i.pdflink }}"  type="text"></input>
+        </form>
+    {% endif %}	    
     </bdiv>
     </div>
     <br>
