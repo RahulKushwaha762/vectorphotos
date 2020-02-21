@@ -77,7 +77,7 @@ def linkpdf(request):
             print("drive link=", link)
             split = link.split('/')
             print(split)
-            img.pdflink = 'https://drive.google.com/uc?id='+split[5]
+            img.pdflink = 'https://docs.google.com/viewer?srcid='+split[5]+'&pid=explorer&efh=false&a=v&chrome=false&embedded=true'
         else:
             print("no drive link", link)
             img.pdflink = link
