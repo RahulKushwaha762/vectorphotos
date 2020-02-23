@@ -8,7 +8,7 @@ def login(request):
     message = 0
     if request.method == 'POST':
         password = request.POST['password']
-        if password == '154321':
+        if password == '9540523996':
             message = 2
             return redirect("/index")
         else:
