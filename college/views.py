@@ -1,6 +1,7 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,HttpResponseRedirect
 from .models import Images,Topics
 from django.core.files.storage import FileSystemStorage
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def login(request):
@@ -9,14 +10,14 @@ def login(request):
         password = request.POST['password']
         if password == '154321':
             message = 2
-            return redirect('index/')
+            return redirect("/index")
         else:
             message = 1
     context = {
         'm':message,
     }
-    return render(request,'login.html',context=context)
 
+    return render(request,'login.html',context=context)
 def index(request):
     category = ''
     val = ''
@@ -36,8 +37,8 @@ def index(request):
             'searched':category,
             'flag':f,
         }
-    return render(request,'homepage.html',context=context)
 
+    return render(request,'homepage.html',context=context)
 def upload(request):
     return render(request,'selectupload.html')
 
