@@ -127,11 +127,12 @@ body {
      justify-content: center;
      flex-wrap: wrap;
 }
+
 </style>
 </head>
 <body>
 <div style="background:#444857;border:2px dotted white;"><topbar>{{ searched }}</topbar></div>
-</div>
+
 {% for i in object %}
     {% if i.topic == searched %}
     <div class="picture">
@@ -171,7 +172,6 @@ body {
     </bdiv>
     </div>
     <br>
-</div>
     {% endif %}
 {% endfor %}
  <form action="/newcategory/">
