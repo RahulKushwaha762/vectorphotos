@@ -40,6 +40,8 @@ topbar{
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-align: center;
+	margin-right:auto;
+	margin-left:auto;
 }
 
 .button:active{
@@ -92,7 +94,7 @@ body {
 	color:white;
 	font-weight:700;
 	transition: .2s ease;
-	text-align: left;
+	text-align: right;
 }
 
 .select {
@@ -172,6 +174,9 @@ body {
 </div>
     {% endif %}
 {% endfor %}
+ <form action="/newcategory/">
+    <button  class="button" type="submit">New Category</button>
+</form>
 <center><i style="font-size:15px;display:inherit;">Made by <span style="color:yellow;">Rahul Kushwaha</span></i></center>
 </body>
 </html>
