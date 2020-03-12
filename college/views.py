@@ -2,22 +2,50 @@ from django.shortcuts import render,HttpResponse,redirect,HttpResponseRedirect
 from .models import Images,Topics
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User,auth
 
 # Create your views here.
+
 def login(request):
     message = 0
     if request.method == 'POST':
         password = request.POST['password']
         if password == '9540523996':
             message = 2
+            next = request.GET.get('next')
+            print(next)
             return redirect("/index")
+        else:
+            message = 1
+
+    context = {
+        'm':message,
+    }
+    return render(request,'login.html',context=context)
+def register(request):
+    message = 0
+    if request.method == 'POST':
+        username = request.POST['username']
+        email = request.POST['email']
+        pass1 = request.POST['password1']
+        pass2 = request.POST['password2']
+        if pass1 == pass2:
+            if User.objects.filter(username=username).exists():
+                message = 2
+            elif User.objects.filter(email=email).exists():
+                message = 3
+            else:
+                user = User.objects.create_user(username=username,email=email,password=pass1)
+                user.save()
+                print('user created')
+                return redirect('/')
         else:
             message = 1
     context = {
         'm':message,
     }
+    return render(request,'register.html',context=context)
 
-    return render(request,'login.html',context=context)
 def index(request):
     category = ''
     val = ''
