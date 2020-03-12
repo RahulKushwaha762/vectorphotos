@@ -115,8 +115,9 @@ body {
 </style>
 </head>
 <body>
-<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS</topbar></div>
-
+{% if user.is_authenticated %}
+<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS <br>Welcome {{ user.username }} </topbar></div>
+{% endif %}
 
 <div class="wrapper">
     Upload new images

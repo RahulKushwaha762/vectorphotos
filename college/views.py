@@ -10,18 +10,18 @@ def login(request):
     message = 0
     if request.method == 'POST':
         password = request.POST['password']
-        if password == '9540523996':
-            message = 2
-            next = request.GET.get('next')
-            print(next)
-            return redirect("/index")
+        username = request.POST['username']
+        user = auth.authenticate(username=username,password=password)
+        if user is not None:
+            auth.login(request,user)
+            return redirect("/index/")
         else:
             message = 1
-
     context = {
         'm':message,
     }
     return render(request,'login.html',context=context)
+
 def register(request):
     message = 0
     if request.method == 'POST':
@@ -46,6 +46,7 @@ def register(request):
     }
     return render(request,'register.html',context=context)
 
+@login_required(login_url="a")
 def index(request):
     category = ''
     val = ''
