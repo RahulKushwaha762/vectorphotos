@@ -26,8 +26,7 @@ SECRET_KEY = 'tn@yh&_tkxr3#9k7=4b1i4_hgt&&srw@^o&x0d5xyd40dpxz8!'
 DEBUG = False
 
 ALLOWED_HOSTS = ['vectorphotos.herokuapp.com','127.0.0.1']
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+
 
 # Application definition
 
