@@ -46,7 +46,11 @@ def register(request):
     }
     return render(request,'register.html',context=context)
 
-@login_required(login_url="a")
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
+
+@login_required(login_url="/")
 def index(request):
     category = ''
     val = ''
@@ -68,9 +72,9 @@ def index(request):
         }
 
     return render(request,'homepage.html',context=context)
+
 def upload(request):
     return render(request,'selectupload.html')
-
 
 def link(request):
     message = 0
@@ -171,8 +175,9 @@ def newcat(request):
             'error': error,
         }
     return render(request,'Newtopic.html',context=context)
-
+@login_required(login_url="/")
 def card(request):
+
     all_topics = Topics.objects.all()
     context = {
         'alltopics':all_topics,

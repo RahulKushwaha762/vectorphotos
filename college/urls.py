@@ -13,5 +13,7 @@ urlpatterns = [
     path('select/delete/<int:cdl>/<slug:topic>/',views.cdelete),
     path('newcategory/',views.newcat),
     path('selectcard/',views.card),
-    path('selectcard/<slug:tp>/',views.selectcard)
+    path('selectcard/<slug:tp>/',views.selectcard),
+    path('logout/',views.logout),
+
 ]

@@ -116,7 +116,7 @@ body {
 </head>
 <body>
 {% if user.is_authenticated %}
-<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS <br>Welcome {{ user.username }} </topbar></div>
+<div style="background:#444857;border:2px dotted white;"><topbar>VECTORPHOTOS <br> Welcome <span style="color:yellow;"> {{ user.username }}</span> </topbar></div>
 {% endif %}
 
 <div class="wrapper">
@@ -202,6 +202,9 @@ body {
 {% endfor %}
 <form action="/index">
     <button class="button" style="margin-top:auto;margin-top:10px;" type="submit">Refresh</button>
+</form>
+<form action="/logout/">
+    <button class="button" style="margin-top:auto;margin-top:10px;background:#b42f2f;" type="submit">Logout</button>
 </form>
 <center><i style="font-size:15px;display:inherit;">Made by <span style="color:yellow;">Rahul Kushwaha</span></i></center>
 </body>
