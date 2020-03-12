@@ -82,13 +82,13 @@ body {
         <form action="" method="POST" >
         {% csrf_token %}
         <br>
-        <input type = "text" name = "username" placeholder="Username">
+        <input class="select" type = "text" name = "username" placeholder="Username">
         <br>
-            <input type = "email" name = "email" placeholder="E-mail">
+            <input class="select" type = "email" name = "email" placeholder="E-mail">
         <br>
-            <input type = "password" name = "password1" placeholder="Password">
+        <input class="select" pattern="[0-9]*" inputmode="numeric" autocomplete="off" type="password" name="password1" placeholder="Enter Password" required id="ct">
         <br>
-            <input type = "password" name = "password2" placeholder="Confirm Password">
+         <input class="select" pattern="[0-9]*" inputmode="numeric" autocomplete="off" type="password" name="password2" placeholder="Verify Password" required id="ct">
         <br>
         <input class="button" type="submit" value="REGISTER">
     </form>
