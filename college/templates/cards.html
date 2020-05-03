@@ -62,10 +62,27 @@ h1{
      cursor: pointer;
      letter-spacing: 1.2px;
 }
+.button {
+	font-size: 1rem;
+	text-shadow: black;
+	line-height: 1.2;
+	padding: 10px 16px;
+	margin-bottom:10px;
+	position: relative;
+	border-radius: 4px;
+	border: 3px solid transparent;
+	background: #2fb45a;
+	color: white;
+	cursor: pointer;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	text-align: center;
+}
 </style>
 </head>
 <body>
 <div class="wrapper">
+
     {% for i in alltopics %}
     {% if i.temail == user.email %}
 <div class="card">
@@ -77,6 +94,11 @@ h1{
     {% endif %}
     {% endfor %}
 </div>
-
+{% if count == 0 %}
+<center><h2><div style="color:white">You have not created any Category Click below to add new category</h2></center>
+{% endif %}
+<form action="/newcategory/">
+    <CENTER><button class="button " type="submit">New Category</button></CENTER>
+</form>
 </body>
 </html>

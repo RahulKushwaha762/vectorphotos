@@ -195,10 +195,14 @@ def newcat(request):
     return render(request,'Newtopic.html',context=context)
 @login_required(login_url="/")
 def card(request):
-
+    user1 = auth.get_user(request)
+    user = User.objects.get(username=user1.username)
+    count = Topics.objects.filter(temail=user.email).count()
+    print(count)
     all_topics = Topics.objects.all()
     context = {
         'alltopics':all_topics,
+        'count':count,
     }
     return render(request,'cards.html',context=context)
 @login_required(login_url="/")
