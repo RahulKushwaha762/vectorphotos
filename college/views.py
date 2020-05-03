@@ -182,6 +182,7 @@ def newcat(request):
         user1 = auth.get_user(request)
         user = User.objects.get(username=user1.username)
         name = name.replace(" ","_")
+        name = name.replace("&", "_and_")
         for i in all_topics:
             if i.name == name and user.email == i.temail:
                 error = 1
