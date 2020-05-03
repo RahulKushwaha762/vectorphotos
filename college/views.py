@@ -64,6 +64,9 @@ def index(request):
     img = Images.objects.all()
     topics = Topics.objects.all()
     f = 0
+    user1 = auth.get_user(request)
+    user = User.objects.get(username=user1.username)
+    print(user.email)
     context = {
             'object':img,
             'topics': topics,
@@ -79,6 +82,7 @@ def upload(request):
 def link(request):
     message = 0
     topics = Topics.objects.all()
+
     if request.method == 'POST':
         link = request.POST['linkimage']
         img = Images()
@@ -93,6 +97,9 @@ def link(request):
         img.image = ''
         img.name = request.POST['filename']
         img.topic = request.POST['category']
+        user1 = auth.get_user(request)
+        user = User.objects.get(username=user1.username)
+        img.email = user.email
         img.save()
         message = 1
     context = {
@@ -119,6 +126,9 @@ def linkpdf(request):
         img.link = ''
         img.name = request.POST['filename']
         img.topic = request.POST['category']
+        user1 = auth.get_user(request)
+        user = User.objects.get(username=user1.username)
+        img.email = user.email
         img.save()
         message = 1
     context = {
@@ -149,6 +159,9 @@ def uploadimage(request):
         img.link = ''
         img.name = request.POST['filename']
         img.topic = request.POST['category']
+        user1 = auth.get_user(request)
+        user = User.objects.get(username=user1.username)
+        img.email = user.email
         img.save()
         message = 1
     context = {
@@ -163,12 +176,17 @@ def newcat(request):
         topic = Topics()
         name = request.POST['category']
         all_topics = Topics.objects.all()
+        user1 = auth.get_user(request)
+        user = User.objects.get(username=user1.username)
         name = name.replace(" ","_")
         for i in all_topics:
-            if i.name == name:
+            if i.name == name and user.email == i.temail:
                 error = 1
         if error == 0:
             topic.name = name
+            user1 = auth.get_user(request)
+            user = User.objects.get(username=user1.username)
+            topic.temail = user.email
             topic.save()
             error = 2
     context = {
@@ -183,6 +201,7 @@ def card(request):
         'alltopics':all_topics,
     }
     return render(request,'cards.html',context=context)
+@login_required(login_url="/")
 def selectcard(request,tp):
     category = tp
     img = Images.objects.all()

@@ -119,8 +119,10 @@ Upload the Images
             <option disabled selected value="none"> select Category </option>
             {% if topics %}
                 {% for i in topics %}
+                    {% if i.temail == user.email %}
                     {{ i.name }}
                     <option value={{ i.name }}>{{ i.name }}</option>
+                    {% endif %}
                 {% endfor %}
             {% endif %}
         </select>

@@ -67,12 +67,14 @@ h1{
 <body>
 <div class="wrapper">
     {% for i in alltopics %}
+    {% if i.temail == user.email %}
 <div class="card">
 	<h3 class="card-title">{{ i.name }}</h3>
         <form action="/selectcard/{{i.name}}/">
             <button class="card-btn">OPEN CARD</button>
         </form>
 </div>
+    {% endif %}
     {% endfor %}
 </div>
 

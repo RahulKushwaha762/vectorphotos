@@ -145,8 +145,10 @@ body {
             <option disabled selected value="none"> select Category </option>
             {% if topics %}
                 {% for i in topics %}
+                {% if i.temail == user.email %}
                     {{ i.name }}
                     <option value={{ i.name }}>{{ i.name }}</option>
+                {% endif %}
                 {% endfor %}
             {% endif %}
         </select>
@@ -158,7 +160,7 @@ body {
  </form>
 </div>
 {% for i in object %}
-    {% if i.topic == searched %}
+    {% if i.topic == searched and i.email == user.email  %}
     <div class="picture">
         <div class="'name" style="border: 2px solid #1e1f26;">
         <center><span style="margin-left:auto;margin-right:auto;color:#e7ee0f;">{{ i.name }}</span></center>

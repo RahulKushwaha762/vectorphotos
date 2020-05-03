@@ -134,7 +134,7 @@ body {
 <div style="background:#444857;border:2px dotted white;"><topbar>{{ searched }}</topbar></div>
 
 {% for i in object %}
-    {% if i.topic == searched %}
+    {% if i.topic == searched and i.email == user.email %}
     <div class="picture">
         <div class="'name" style="border: 2px solid #1e1f26;">
         <center><span style="margin-left:auto;margin-right:auto;color:#e7ee0f;">{{ i.name }}</span></center>
