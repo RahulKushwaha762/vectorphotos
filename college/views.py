@@ -10,8 +10,15 @@ def login(request):
     message = 0
     if request.method == 'POST':
         password = request.POST['password']
-        username = request.POST['username']
-        user = auth.authenticate(username=username,password=password)
+        email = request.POST['email']
+        usermodel = auth.get_user_model()
+        if User.objects.filter(email=email).exists():
+            user = usermodel.objects.get(email=email)
+            getusername = user.username
+        else:
+            getusername = ''
+
+        user = auth.authenticate(username=getusername,password=password)
         if user is not None:
             auth.login(request,user)
             return redirect("/index/")
@@ -30,9 +37,7 @@ def register(request):
         pass1 = request.POST['password1']
         pass2 = request.POST['password2']
         if pass1 == pass2:
-            if User.objects.filter(username=username).exists():
-                message = 2
-            elif User.objects.filter(email=email).exists():
+            if User.objects.filter(email=email).exists():
                 message = 3
             else:
                 user = User.objects.create_user(username=username,email=email,password=pass1)
