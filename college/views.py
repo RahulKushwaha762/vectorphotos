@@ -55,7 +55,10 @@ def index(request):
     category = ''
     val = ''
     if request.method == 'POST':
-        category = request.POST['category']
+        if 'category' in request.POST:
+            category = request.POST['category']
+        else:
+            category = ''
         val = request.POST['op']
         if val == 'delete':
             Topics.objects.filter(name=category).delete()
