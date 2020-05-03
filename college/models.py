@@ -2,6 +2,11 @@ from django.db import models
 
 # Create your models here.
 
+class Userdetails(models.Model):
+    passw = models.CharField(max_length=100,default='',null=False)
+    emailw = models.CharField(max_length=100,default='',null=False)
+    userw = models.CharField(max_length=100, default='', null=False)
+
 class Topics(models.Model):
     name = models.CharField(max_length=100,default='')
     total = models.IntegerField(default=0,null=False)

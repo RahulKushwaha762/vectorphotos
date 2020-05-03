@@ -81,9 +81,9 @@ body {
         <form action="" method="POST" >
         {% csrf_token %}
         <br>
-        <input class="select" type = "text" name = "username" placeholder="Username">
+        <input class="select" type = "text" name = "username" placeholder="Username" required id="ct">
         <br>
-            <input class="select" type = "email" name = "email" placeholder="E-mail">
+            <input class="select" type = "email" name = "email" placeholder="E-mail" required id="ct">
         <br>
         <input class="select"  autocomplete="off" type="password" name="password1" placeholder="Enter Password" required id="ct">
         <br>

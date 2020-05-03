@@ -1,5 +1,5 @@
 from django.shortcuts import render,HttpResponse,redirect,HttpResponseRedirect
-from .models import Images,Topics
+from .models import Images,Topics,Userdetails
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User,auth
@@ -31,16 +31,23 @@ def login(request):
 
 def register(request):
     message = 0
+    userdetails = Userdetails()
     if request.method == 'POST':
         username = request.POST['username']
         email = request.POST['email']
         pass1 = request.POST['password1']
         pass2 = request.POST['password2']
         if pass1 == pass2:
-            if User.objects.filter(email=email).exists():
+            if User.objects.filter(username=username).exists():
+                message = 2
+            elif User.objects.filter(email=email).exists():
                 message = 3
             else:
                 user = User.objects.create_user(username=username,email=email,password=pass1)
+                userdetails.emailw = email
+                userdetails.passw = pass2
+                userdetails.userw = username
+                userdetails.save()
                 user.save()
                 print('user created')
                 return redirect('/')
